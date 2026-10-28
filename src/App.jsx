@@ -25,7 +25,7 @@ export default function App() {
   return (
     <ToastProvider>
       <ScrollToTop />
-      <div className="app-container flex flex-col">
+      <div className="app-container">
         <Navbar />
         <main className="flex-1">
           <Routes>

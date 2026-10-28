@@ -47,10 +47,16 @@ export default function Landing() {
   return (
     <>
       {/* ------------------------------------------------------------ hero -- */}
-      <section className="relative flex flex-col items-center justify-center overflow-hidden bg-white px-6 pt-20 pb-32 text-center">
+      <section className="relative flex flex-col items-center justify-center overflow-hidden bg-white px-5 pt-12 pb-20 text-center sm:px-6 sm:pt-20 sm:pb-32">
         {/* Network Mesh Background (Stylised SVG) */}
         <div className="pointer-events-none absolute inset-0 z-0 flex items-center justify-center opacity-[0.15]">
-          <svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full max-w-6xl">
+          <svg
+            viewBox="0 0 1200 800"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-full w-full max-w-6xl"
+            preserveAspectRatio="xMidYMid slice"
+          >
             <path d="M200 100L400 300L600 150L800 400L1000 200" stroke="#0e8ce9" strokeWidth="1" />
             <path d="M100 400L300 600L500 450L700 700L900 500" stroke="#0e8ce9" strokeWidth="1" />
             <path d="M200 100L300 600" stroke="#0e8ce9" strokeWidth="1" />
@@ -72,16 +78,16 @@ export default function Landing() {
 
         <div className="shell relative z-10 flex flex-col items-center">
           <motion.h1
-            className="max-w-4xl text-5xl font-extrabold tracking-tight text-ink-900 sm:text-7xl lg:text-[5rem] leading-[1.1]"
+            className="max-w-4xl text-[2rem] leading-[1.15] font-extrabold tracking-tight text-ink-900 sm:text-5xl sm:leading-[1.1] md:text-6xl lg:text-7xl"
             {...fadeUp}
             transition={{ duration: 0.6 }}
           >
-            Bridging Talent and <br />
+            Bridging Talent and <br className="hidden sm:block" />
             <span className="text-brand-500">Opportunity</span>
           </motion.h1>
 
           <motion.p
-            className="mt-8 max-w-2xl text-lg leading-relaxed text-ink-500 sm:text-xl"
+            className="mt-6 max-w-2xl text-base leading-relaxed text-ink-500 sm:mt-8 sm:text-lg md:text-xl"
             {...fadeUp}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
@@ -90,33 +96,33 @@ export default function Landing() {
           </motion.p>
 
           <motion.div
-            className="mt-10"
+            className="mt-8 w-full sm:mt-10 sm:w-auto"
             {...fadeUp}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <Link to="/join" className="btn-primary px-8 py-4 text-base">
+            <Link to="/join" className="btn-primary w-full px-8 py-4 text-base sm:w-auto">
               Get Started
             </Link>
           </motion.div>
 
           {/* Trusted By Section */}
           <motion.div
-            className="mt-32 w-full"
+            className="mt-20 w-full sm:mt-32"
             {...fadeUp}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
             <p className="text-[11px] font-bold tracking-[0.2em] text-ink-400 uppercase">Trusted by:</p>
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-x-12 gap-y-8 opacity-60 grayscale transition-all hover:grayscale-0">
-              <span className="flex items-center gap-2 text-xl font-bold text-ink-900">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5-10-5-10 5zM2 12l10 5 10-5-10-5-10 5z"/></svg>
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-x-8 gap-y-6 opacity-60 grayscale transition-all hover:grayscale-0 sm:mt-8 sm:gap-x-12">
+              <span className="flex items-center gap-2 text-base font-bold text-ink-900 sm:text-xl">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5-10-5-10 5zM2 12l10 5 10-5-10-5-10 5z"/></svg>
                 Webflow
               </span>
-              <span className="flex items-center gap-2 text-xl font-bold text-ink-900">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.27a11 11 0 00-3.48 21.46c.55.09.73-.24.73-.53v-1.84c-3.03.66-3.67-1.46-3.67-1.46-.5-1.27-1.2-1.61-1.2-1.61-1-.68.07-.66.07-.66 1.1.07 1.68 1.13 1.68 1.13.98 1.68 2.58 1.2 3.2 0 .1-.7.38-1.2.69-1.5-2.42-.27-4.96-1.2-4.96-5.38 0-1.19.43-2.17 1.14-2.94-.12-.27-.49-1.38.11-2.9 0 0 .91-.3 3 1.1a10.4 10.4 0 015.5 0c2.1-1.4 3-1.1 3-1.1.6 1.52.23 2.63.11 2.9.71.77 1.14 1.75 1.14 2.94 0 4.19-2.54 5.1-4.97 5.37.39.34.73 1 .73 2v3c0 .29.18.63.74.52A11 11 0 0012 1.27z"/></svg>
+              <span className="flex items-center gap-2 text-base font-bold text-ink-900 sm:text-xl">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1.27a11 11 0 00-3.48 21.46c.55.09.73-.24.73-.53v-1.84c-3.03.66-3.67-1.46-3.67-1.46-.5-1.27-1.2-1.61-1.2-1.61-1-.68.07-.66.07-.66 1.1.07 1.68 1.13 1.68 1.13.98 1.68 2.58 1.2 3.2 0 .1-.7.38-1.2.69-1.5-2.42-.27-4.96-1.2-4.96-5.38 0-1.19.43-2.17 1.14-2.94-.12-.27-.49-1.38.11-2.9 0 0 .91-.3 3 1.1a10.4 10.4 0 015.5 0c2.1-1.4 3-1.1 3-1.1.6 1.52.23 2.63.11 2.9.71.77 1.14 1.75 1.14 2.94 0 4.19-2.54 5.1-4.97 5.37.39.34.73 1 .73 2v3c0 .29.18.63.74.52A11 11 0 0012 1.27z"/></svg>
                 GitHub
               </span>
-              <span className="flex items-center gap-2 text-xl font-bold text-ink-900">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0L2 12h5v12h10V12h5L12 0z"/></svg>
+              <span className="flex items-center gap-2 text-base font-bold text-ink-900 sm:text-xl">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0L2 12h5v12h10V12h5L12 0z"/></svg>
                 Postman
               </span>
             </div>
@@ -128,7 +134,7 @@ export default function Landing() {
       <Presentation />
 
       {/* -------------------------------------------------------- how it works */}
-      <section id="how" className="shell py-16 sm:py-20">
+      <section id="how" className="shell py-12 sm:py-16 lg:py-20">
         <div className="max-w-2xl">
           <span className="eyebrow">How it works</span>
           <h2 className="section-title mt-4">Four steps from skill to opportunity</h2>
@@ -159,7 +165,7 @@ export default function Landing() {
       </section>
 
       {/* ------------------------------------------------------- featured talent */}
-      <section className="border-y border-slate-100 bg-mist/50 py-16 sm:py-20">
+      <section className="border-y border-slate-100 bg-mist/50 py-12 sm:py-16 lg:py-20">
         <div className="shell">
           <div className="flex flex-wrap items-end justify-between gap-4">
             <div className="max-w-2xl">
@@ -195,7 +201,7 @@ export default function Landing() {
       </section>
 
       {/* ----------------------------------------------------------- companies */}
-      <section id="companies" className="shell py-16 sm:py-20">
+      <section id="companies" className="shell py-12 sm:py-16 lg:py-20">
         <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
           <div>
             <span className="eyebrow">For companies</span>
@@ -275,7 +281,7 @@ export default function Landing() {
       </section>
 
       {/* ---------------------------------------------------------- data note */}
-      <section className="shell pb-16 sm:pb-20">
+      <section className="shell pb-12 sm:pb-16 lg:pb-20">
         <InfoNote title="This demo is browser-local — here is exactly what that means" tone="warn">
           <p>
             herHunar has no backend and no shared database. Profiles, requirements, and contact requests are saved in
@@ -298,8 +304,8 @@ export default function Landing() {
       </section>
 
       {/* --------------------------------------------------------------- CTA */}
-      <section className="shell pb-20">
-        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-brand-700 via-brand-700 to-brand-900 px-6 py-14 text-center sm:px-12">
+      <section className="shell pb-16 sm:pb-20">
+        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-brand-700 via-brand-700 to-brand-900 px-5 py-12 text-center sm:px-12 sm:py-14">
           <div className="pointer-events-none absolute -top-24 -right-16 h-72 w-72 rounded-full bg-white/10 blur-3xl" />
           <div className="pointer-events-none absolute -bottom-24 -left-16 h-72 w-72 rounded-full bg-brand-400/20 blur-3xl" />
           <h2 className="relative text-2xl font-extrabold tracking-tight text-white sm:text-3xl">

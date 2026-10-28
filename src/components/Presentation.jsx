@@ -115,7 +115,7 @@ export default function Presentation() {
   }
 
   return (
-    <section id="deck" className="relative overflow-hidden border-y border-brand-100/70 bg-gradient-to-b from-brand-50/70 via-white to-white py-16 sm:py-20">
+    <section id="deck" className="relative overflow-hidden border-y border-brand-100/70 bg-gradient-to-b from-brand-50/70 via-white to-white py-12 sm:py-16 lg:py-20">
       <div className="pointer-events-none absolute -top-24 -right-16 h-72 w-72 rounded-full bg-brand-200/35 blur-3xl" />
       <div className="pointer-events-none absolute -bottom-28 -left-20 h-72 w-72 rounded-full bg-brand-100/50 blur-3xl" />
 
@@ -133,8 +133,8 @@ export default function Presentation() {
         </div>
 
         <div className="mt-9">
-          <div ref={frameRef} className="relative rounded-3xl bg-brand-900/5 p-2 shadow-card ring-1 ring-brand-100 sm:p-3">
-            <div ref={measureRef} className="relative w-full overflow-hidden rounded-2xl bg-white ring-1 ring-slate-200/80">
+          <div ref={frameRef} className="relative rounded-2xl bg-brand-900/5 p-1.5 shadow-card ring-1 ring-brand-100 sm:rounded-3xl sm:p-3">
+            <div ref={measureRef} className="relative w-full overflow-hidden rounded-xl bg-white ring-1 ring-slate-200/80 sm:rounded-2xl">
               <div style={{ aspectRatio: `${stageWidth} / ${stageHeight}` }} className="relative w-full">
                 <AnimatePresence mode="wait">
                   <motion.div
@@ -157,7 +157,7 @@ export default function Presentation() {
                     type="button"
                     onClick={previous}
                     aria-label="Previous slide"
-                    className="absolute top-1/2 left-2 -translate-y-1/2 rounded-full bg-white/90 p-2.5 text-ink-700 shadow-card ring-1 ring-slate-200 backdrop-blur transition hover:bg-white hover:text-brand-700 sm:left-4 sm:p-3"
+                    className="absolute top-1/2 left-1.5 -translate-y-1/2 rounded-full bg-white/90 p-2 text-ink-700 shadow-card ring-1 ring-slate-200 backdrop-blur transition hover:bg-white hover:text-brand-700 sm:left-4 sm:p-3"
                   >
                     <IconChevronLeft size={18} />
                   </button>
@@ -165,14 +165,14 @@ export default function Presentation() {
                     type="button"
                     onClick={next}
                     aria-label="Next slide"
-                    className="absolute top-1/2 right-2 -translate-y-1/2 rounded-full bg-white/90 p-2.5 text-ink-700 shadow-card ring-1 ring-slate-200 backdrop-blur transition hover:bg-white hover:text-brand-700 sm:right-4 sm:p-3"
+                    className="absolute top-1/2 right-1.5 -translate-y-1/2 rounded-full bg-white/90 p-2 text-ink-700 shadow-card ring-1 ring-slate-200 backdrop-blur transition hover:bg-white hover:text-brand-700 sm:right-4 sm:p-3"
                   >
                     <IconChevronRight size={18} />
                   </button>
                 </>
               )}
 
-              <span className="absolute right-3 bottom-3 rounded-full bg-ink-900/80 px-3 py-1 text-xs font-semibold text-white backdrop-blur">
+              <span className="absolute right-2 bottom-2 rounded-full bg-ink-900/80 px-2.5 py-1 text-[11px] font-semibold text-white backdrop-blur sm:right-3 sm:bottom-3 sm:text-xs">
                 {index + 1} / {total}
               </span>
             </div>
@@ -180,7 +180,7 @@ export default function Presentation() {
 
           {/* Controls */}
           <div className="mt-5 flex flex-col gap-4">
-            <div className="flex flex-wrap items-center justify-between gap-3">
+            <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between">
               <div className="flex items-center gap-2">
                 <button type="button" className="btn-outline btn-sm" onClick={previous} disabled={total < 2}>
                   <IconChevronLeft size={15} />
@@ -193,7 +193,8 @@ export default function Presentation() {
                   disabled={total < 2}
                 >
                   {playing ? <IconPause size={15} /> : <IconPlay size={15} />}
-                  {playing ? 'Pause' : 'Play slideshow'}
+                  <span className="hidden sm:inline">{playing ? 'Pause' : 'Play slideshow'}</span>
+                  <span className="sm:hidden">{playing ? 'Pause' : 'Play'}</span>
                 </button>
                 <button type="button" className="btn-outline btn-sm" onClick={next} disabled={total < 2}>
                   Next
@@ -202,13 +203,15 @@ export default function Presentation() {
               </div>
 
               <div className="flex items-center gap-2">
-                <button type="button" className="btn-outline btn-sm" onClick={toggleFullscreen}>
+                <button type="button" className="btn-outline btn-sm flex-1 sm:flex-none" onClick={toggleFullscreen}>
                   <IconExpand size={15} />
-                  {isFullscreen ? 'Exit full screen' : 'Full screen'}
+                  <span className="hidden sm:inline">{isFullscreen ? 'Exit full screen' : 'Full screen'}</span>
+                  <span className="sm:hidden">{isFullscreen ? 'Exit' : 'Full'}</span>
                 </button>
-                <a className="btn-outline btn-sm" href="/herhunar.pptx" download>
+                <a className="btn-outline btn-sm flex-1 sm:flex-none" href="/herhunar.pptx" download>
                   <IconDownload size={15} />
-                  Download .pptx
+                  <span className="hidden sm:inline">Download .pptx</span>
+                  <span className="sm:hidden">.pptx</span>
                 </a>
               </div>
             </div>
@@ -236,7 +239,7 @@ export default function Presentation() {
                   type="button"
                   onClick={() => go(slideIndex)}
                   className={cx(
-                    'group flex w-40 shrink-0 flex-col gap-1 rounded-xl border p-3 text-left transition',
+                    'group flex w-32 shrink-0 flex-col gap-1 rounded-xl border p-2.5 text-left transition sm:w-40 sm:p-3',
                     slideIndex === index
                       ? 'border-brand-300 bg-brand-50 shadow-card'
                       : 'border-slate-200 bg-white hover:border-brand-200 hover:bg-brand-50/50',

@@ -161,7 +161,7 @@ export default function Join() {
             type="button"
             onClick={() => switchType(item.value)}
             className={cx(
-              'inline-flex flex-1 items-center justify-center gap-2 rounded-lg px-4 py-2.5 text-sm font-semibold transition',
+              'inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg px-2 py-2.5 text-xs font-semibold whitespace-nowrap transition sm:gap-2 sm:px-4 sm:text-sm',
               accountType === item.value ? 'bg-white text-brand-700 shadow-card' : 'text-ink-500 hover:text-ink-700',
             )}
           >

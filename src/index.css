@@ -59,8 +59,9 @@
     scroll-behavior: smooth;
   }
 
+  /* Full-bleed white on phones; the blue “floating card” surround starts at sm. */
   body {
-    @apply bg-[#3a8ef6] font-sans text-ink-700 antialiased p-4 sm:p-8 min-h-screen flex items-center justify-center;
+    @apply bg-white font-sans text-ink-700 antialiased sm:flex sm:min-h-screen sm:items-start sm:justify-center sm:bg-[#3a8ef6] sm:p-6 lg:p-8;
   }
 
   h1,
@@ -78,19 +79,20 @@
 
 /* ------------------------------------------------------------- components -- */
 @layer components {
+  /* `overflow-x-clip` (not `hidden`) so the sticky navbar keeps working. */
   .app-container {
-    @apply bg-white rounded-[2.5rem] overflow-hidden shadow-2xl relative w-full max-w-[1440px] min-h-[90vh];
+    @apply relative flex w-full max-w-[1440px] flex-col overflow-x-clip bg-white sm:min-h-[calc(100vh-3rem)] sm:rounded-[2rem] sm:shadow-2xl lg:rounded-[2.5rem];
   }
 
   .shell {
-    @apply mx-auto w-full max-w-7xl px-6 sm:px-10;
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-10;
   }
 
   .btn,
   .btn-primary,
   .btn-outline,
   .btn-ghost {
-    @apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-xl px-6 py-2.5 text-sm font-semibold transition-all duration-200 select-none disabled:cursor-not-allowed disabled:opacity-55;
+    @apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-xl px-5 py-2.5 text-sm font-semibold whitespace-nowrap transition-all duration-200 select-none disabled:cursor-not-allowed disabled:opacity-55 sm:px-6;
   }
 
   .btn-primary {

@@ -15,7 +15,7 @@ const NAV_LINKS = [
 function Logo() {
   return (
     <Link to="/" className="flex items-center gap-2">
-      <span className="text-xl font-extrabold tracking-tight text-ink-900">herHunar</span>
+      <span className="text-lg font-extrabold tracking-tight text-ink-900 sm:text-xl">herHunar</span>
     </Link>
   );
 }
@@ -33,9 +33,9 @@ export default function Navbar() {
   }, [location.pathname, location.search]);
 
   return (
-    <header className="sticky top-0 z-40 bg-white/70 backdrop-blur-xl">
-      <div className="shell flex h-20 items-center justify-between gap-4">
-        <div className="flex-1">
+    <header className="sticky top-0 z-40 bg-white/80 backdrop-blur-xl sm:top-6 sm:rounded-t-[2rem] lg:top-8 lg:rounded-t-[2.5rem]">
+      <div className="shell flex h-16 items-center justify-between gap-3 sm:h-20 sm:gap-4">
+        <div className="shrink-0">
           <Logo />
         </div>
 
@@ -57,13 +57,16 @@ export default function Navbar() {
           })}
         </nav>
 
-        <div className="flex flex-1 items-center justify-end gap-4">
+        <div className="flex shrink-0 items-center justify-end gap-2 sm:gap-3">
           {!currentUser && (
-            <Link to="/login" className="text-sm font-semibold text-brand-600 hover:text-brand-700 hidden sm:inline-flex">
+            <Link
+              to="/login"
+              className="hidden text-sm font-semibold text-brand-600 transition-colors hover:text-brand-700 md:inline-flex"
+            >
               Login
             </Link>
           )}
-          <Link to="/join" className="btn-outline btn-sm hidden sm:inline-flex">
+          <Link to="/join" className="btn-outline btn-sm hidden md:inline-flex">
             Get Started
           </Link>
 

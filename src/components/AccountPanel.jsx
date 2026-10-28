@@ -130,7 +130,7 @@ export default function AccountPanel({ open, onClose }) {
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: -6, scale: 0.98 }}
           transition={{ duration: 0.18, ease: [0.22, 1, 0.36, 1] }}
-          className="absolute right-0 top-[calc(100%+0.75rem)] z-50 w-[min(90vw,23rem)] overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-lift"
+          className="absolute top-[calc(100%+0.75rem)] right-0 z-50 w-[min(92vw,22rem)] overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-lift"
           role="menu"
           aria-label="Account options"
         >
