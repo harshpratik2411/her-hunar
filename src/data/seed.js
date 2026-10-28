@@ -1,0 +1,300 @@
+/**
+ * Demo data used to seed localStorage on first visit.
+ * Everything here is fictional and safe to show in a college demo.
+ * Demo accounts all use the password: herhunar
+ */
+
+export const DEMO_PASSWORD = 'herhunar';
+
+export const SKILL_CATEGORIES = [
+  'Tailoring & Sewing',
+  'Cooking & Baking',
+  'Handmade & Crafts',
+  'Tutoring & Education',
+  'Beauty & Wellness',
+  'Design & Digital',
+];
+
+export const EXPERIENCE_LEVELS = ['Fresher', '0-2 years', '1-3 years', '3-5 years', '5+ years'];
+
+export const TEAM_SIZES = ['Just me', '1-10 people', '11-50 people', '51-200 people', '200+ people'];
+
+export const DEMO_TALENTS = [
+  {
+    id: 'tal-shagun',
+    kind: 'talent',
+    name: 'Shagun Diwedi',
+    age: 21,
+    occupation: 'Sewing & Tailoring',
+    category: 'Tailoring & Sewing',
+    headline: 'Tailor and pattern maker for everyday and occasion wear',
+    skills: ['Sewing', 'Tailoring', 'Pattern Making', 'Embroidery', 'Alterations'],
+    experienceLevel: '1-3 years',
+    experience:
+      'Three years of tailoring experience from home, including school uniforms, blouse fitting, and alterations. Comfortable with measurements, cutting, and finishing on a single machine.',
+    education: 'Diploma in Fashion Design, ITI Lucknow',
+    portfolio: [
+      { label: 'Blouse fitting samples', url: 'https://example.com/shagun/blouse-samples' },
+      { label: 'School uniform bulk order', url: 'https://example.com/shagun/uniform-order' },
+    ],
+    bio: 'I run a small tailoring setup from home and take custom stitching orders. I like clean finishing and on-time delivery.',
+    location: 'Lucknow, Uttar Pradesh',
+    availability: 'Part-time · Flexible hours',
+    languages: ['Hindi', 'English'],
+    email: 'shagun.diwedi@example.com',
+    phone: '+91 90000 10021',
+    createdAt: '2026-09-02T09:15:00.000Z',
+    demo: true,
+  },
+  {
+    id: 'tal-shreya',
+    kind: 'talent',
+    name: 'Shreya Pandey',
+    age: 22,
+    occupation: 'Cooking & Baking',
+    category: 'Cooking & Baking',
+    headline: 'Home chef and baker for tiffins, cakes, and small events',
+    skills: ['Cooking', 'Baking', 'Cake Decoration', 'Home Catering', 'Menu Planning'],
+    experienceLevel: '1-3 years',
+    experience:
+      'Two years of home catering for birthdays and small gatherings, plus a weekly tiffin service for 15 students. Handles budget planning and shopping without supervision.',
+    education: 'B.Com, Banaras Hindu University',
+    portfolio: [
+      { label: 'Birthday cake gallery', url: 'https://example.com/shreya/cakes' },
+      { label: 'Weekly tiffin menu', url: 'https://example.com/shreya/tiffin-menu' },
+    ],
+    bio: 'I cook fresh North Indian food and bake customised cakes. I can work on short notice for family functions.',
+    location: 'Varanasi, Uttar Pradesh',
+    availability: 'Full-time · Weekdays',
+    languages: ['Hindi', 'English'],
+    email: 'shreya.pandey@example.com',
+    phone: '+91 90000 10022',
+    createdAt: '2026-09-05T11:40:00.000Z',
+    demo: true,
+  },
+  {
+    id: 'tal-asha',
+    kind: 'talent',
+    name: 'Asha Verma',
+    age: 26,
+    occupation: 'Handmade Jewellery',
+    category: 'Handmade & Crafts',
+    headline: 'Handmade jewellery and resin accessories in small batches',
+    skills: ['Jewellery Making', 'Beading', 'Resin Art', 'Custom Orders', 'Packaging'],
+    experienceLevel: '3-5 years',
+    experience:
+      'Four years of making and selling handmade jewellery at local exhibitions and through WhatsApp orders. Ships pan-India in handmade packaging.',
+    education: 'B.A. (History), University of Allahabad',
+    portfolio: [
+      { label: 'Festive collection', url: 'https://example.com/asha/festive-collection' },
+      { label: 'Resin pendant series', url: 'https://example.com/asha/resin-pendants' },
+    ],
+    bio: 'I design light-weight jewellery that suits daily wear as well as festive occasions. Custom colour requests are welcome.',
+    location: 'Prayagraj, Uttar Pradesh',
+    availability: 'Part-time · Evenings',
+    languages: ['Hindi'],
+    email: 'asha.verma@example.com',
+    phone: '+91 90000 10023',
+    createdAt: '2026-09-11T08:05:00.000Z',
+    demo: true,
+  },
+  {
+    id: 'tal-priya',
+    kind: 'talent',
+    name: 'Priya Nair',
+    age: 24,
+    occupation: 'Tutoring',
+    category: 'Tutoring & Education',
+    headline: 'Maths and spoken English tutor for grades 6 to 10',
+    skills: ['Mathematics Tutoring', 'Spoken English', 'Lesson Planning', 'Online Classes'],
+    experienceLevel: '1-3 years',
+    experience:
+      'Three years of home and online tuition for over 40 students. Maintains weekly progress notes and shares them with parents.',
+    education: 'B.Sc. Mathematics, Delhi University',
+    portfolio: [{ label: 'Student progress sheet (sample)', url: 'https://example.com/priya/progress' }],
+    bio: 'I explain concepts slowly with real examples and regular practice tests. Available for online or home tuition.',
+    location: 'Delhi, India',
+    availability: 'Part-time · Weekends',
+    languages: ['English', 'Hindi', 'Malayalam'],
+    email: 'priya.nair@example.com',
+    phone: '+91 90000 10024',
+    createdAt: '2026-09-14T15:20:00.000Z',
+    demo: true,
+  },
+  {
+    id: 'tal-meera',
+    kind: 'talent',
+    name: 'Meera Joshi',
+    age: 29,
+    occupation: 'Art & Crafts',
+    category: 'Handmade & Crafts',
+    headline: 'Folk artist and craft workshop facilitator',
+    skills: ['Madhubani Painting', 'Canvas Art', 'Craft Workshops', 'Photography'],
+    experienceLevel: '5+ years',
+    experience:
+      'Six years of painting practice and three years of running weekend craft workshops for school groups and corporate teams.',
+    education: 'M.F.A. Painting, Banasthali Vidyapith',
+    portfolio: [
+      { label: 'Madhubani series', url: 'https://example.com/meera/madhubani' },
+      { label: 'Workshop highlights', url: 'https://example.com/meera/workshops' },
+    ],
+    bio: 'I paint traditional folk art on canvas and paper, and teach beginner-friendly craft sessions for groups.',
+    location: 'Jaipur, Rajasthan',
+    availability: 'Freelance · On request',
+    languages: ['Hindi', 'English', 'Marwari'],
+    email: 'meera.joshi@example.com',
+    phone: '+91 90000 10025',
+    createdAt: '2026-09-18T10:10:00.000Z',
+    demo: true,
+  },
+  {
+    id: 'tal-ritu',
+    kind: 'talent',
+    name: 'Ritu Singh',
+    age: 23,
+    occupation: 'Beauty & Mehendi',
+    category: 'Beauty & Wellness',
+    headline: 'Mehendi artist and bridal beauty assistant',
+    skills: ['Mehendi Design', 'Bridal Makeup', 'Hair Styling', 'Client Handling'],
+    experienceLevel: '1-3 years',
+    experience:
+      'Two years of bridal and festival mehendi bookings, working alongside a salon team for wedding season. Handles her own client scheduling.',
+    education: 'Certificate in Cosmetology, VLCC Institute',
+    portfolio: [{ label: 'Bridal mehendi album', url: 'https://example.com/ritu/mehendi' }],
+    bio: 'I do detailed bridal and Arabic mehendi at home or at the venue. Makeup support available on request.',
+    location: 'Lucknow, Uttar Pradesh',
+    availability: 'Freelance · Weekends',
+    languages: ['Hindi'],
+    email: 'ritu.singh@example.com',
+    phone: '+91 90000 10026',
+    createdAt: '2026-09-21T18:00:00.000Z',
+    demo: true,
+  },
+];
+
+export const DEMO_COMPANIES = [
+  {
+    id: 'com-novacraft',
+    kind: 'company',
+    companyName: 'NovaCraft Studio',
+    contactPerson: 'Vidhan Mishra',
+    role: 'Hiring Manager',
+    age: 24,
+    industry: 'Retail & Lifestyle',
+    teamSize: '11-50 people',
+    location: 'Delhi, India',
+    website: 'https://novacraft.example.com',
+    about:
+      'NovaCraft Studio is a small lifestyle brand making custom clothing and home decor. We work with home-based makers and small workshops, and we hire for skill rather than degrees.',
+    requirements: [
+      {
+        id: 'req-tailor-denim',
+        title: 'Tailor for our denim capsule line',
+        skills: ['Sewing', 'Tailoring', 'Pattern Making', 'Denim Finishing'],
+        experienceLevel: '1-3 years',
+        workType: 'On-site · Delhi',
+        budget: '₹18,000 – ₹24,000 / month',
+        description:
+          'Stitch and finish around 120 denim pieces per month, including fittings and small alterations. Training on our patterns is provided.',
+      },
+      {
+        id: 'req-baker-popup',
+        title: 'Home baker for weekend pop-up',
+        skills: ['Baking', 'Cake Decoration', 'Home Catering', 'Menu Planning'],
+        experienceLevel: '0-2 years',
+        workType: 'Part-time · Weekends',
+        budget: '₹12,000 – ₹18,000 / month',
+        description:
+          'Bake a fixed menu of cakes, cookies, and tea-time snacks for our weekend pop-up stall. Ingredients are reimbursed.',
+      },
+    ],
+    email: 'hiring@novacraft.example.com',
+    phone: '+91 98110 22001',
+    createdAt: '2026-09-08T07:30:00.000Z',
+    demo: true,
+  },
+  {
+    id: 'com-kalakriti',
+    kind: 'company',
+    companyName: 'Kalakriti Handmade',
+    contactPerson: 'Neha Sharma',
+    role: 'Talent Partner',
+    age: 31,
+    industry: 'Handicrafts & Gifting',
+    teamSize: '1-10 people',
+    location: 'Jaipur, Rajasthan',
+    website: 'https://kalakriti.example.com',
+    about:
+      'We curate handmade gifts for corporate and festive orders, sourcing directly from women artisans. Artisans keep their own brand name on every piece.',
+    requirements: [
+      {
+        id: 'req-jewellery-artisan',
+        title: 'Jewellery artisan for festive collection',
+        skills: ['Jewellery Making', 'Beading', 'Resin Art', 'Packaging'],
+        experienceLevel: '1-3 years',
+        workType: 'Work from home · Flexible',
+        budget: '₹15,000 – ₹22,000 / month',
+        description:
+          'Produce 40–60 pieces per month for the festive catalogue, packed and labelled for direct shipping.',
+      },
+    ],
+    email: 'connect@kalakriti.example.com',
+    phone: '+91 98110 22002',
+    createdAt: '2026-09-12T12:00:00.000Z',
+    demo: true,
+  },
+  {
+    id: 'com-learnloop',
+    kind: 'company',
+    companyName: 'LearnLoop Academy',
+    contactPerson: 'Arjun Mehta',
+    role: 'Operations Lead',
+    age: 29,
+    industry: 'Education',
+    teamSize: '51-200 people',
+    location: 'Remote, India',
+    website: 'https://learnloop.example.com',
+    about:
+      'LearnLoop runs live online classes for students in grades 6 to 10. We hire tutors on flexible hourly contracts and pay per completed class.',
+    requirements: [
+      {
+        id: 'req-maths-tutor',
+        title: 'Maths tutor for grades 6 to 10',
+        skills: ['Mathematics Tutoring', 'Lesson Planning', 'Online Classes'],
+        experienceLevel: '0-2 years',
+        workType: 'Online · Flexible slots',
+        budget: '₹350 – ₹600 / hour',
+        description:
+          'Take 4 to 8 live classes a week with batches of up to 12 students. Lesson plans and teaching material are provided.',
+      },
+    ],
+    email: 'tutors@learnloop.example.com',
+    phone: '+91 98110 22003',
+    createdAt: '2026-09-16T05:45:00.000Z',
+    demo: true,
+  },
+];
+
+export const DEMO_REQUESTS = [
+  {
+    id: 'creq-1001',
+    companyId: 'com-novacraft',
+    talentId: 'tal-shagun',
+    requirementId: 'req-tailor-denim',
+    requirementTitle: 'Tailor for our denim capsule line',
+    message:
+      'Hello Shagun, we liked your stitching samples. Would you be open to a trial batch of 20 pieces this month?',
+    status: 'pending',
+    createdAt: '2026-10-12T10:20:00.000Z',
+  },
+  {
+    id: 'creq-1002',
+    companyId: 'com-kalakriti',
+    talentId: 'tal-shreya',
+    requirementId: 'req-jewellery-artisan',
+    requirementTitle: 'Jewellery artisan for festive collection',
+    message: 'We have a festive gifting order starting next week and would love to discuss rates with you.',
+    status: 'accepted',
+    createdAt: '2026-10-15T06:55:00.000Z',
+  },
+];
