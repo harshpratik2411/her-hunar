@@ -42,156 +42,84 @@ export default function Landing() {
 
   const featured = useMemo(() => talents.slice(0, 3), [talents]);
 
-  const heroTalent = featured[0];
   const heroCompany = companies[0];
-  const heroMatch = useMemo(
-    () => (heroTalent && heroCompany ? bestMatchForTalent(heroTalent, heroCompany) : null),
-    [heroTalent, heroCompany],
-  );
 
   return (
     <>
       {/* ------------------------------------------------------------ hero -- */}
-      <section className="relative overflow-hidden border-b border-slate-100">
-        <div className="grid-fade pointer-events-none absolute inset-0 opacity-[0.5]" />
-        <div className="pointer-events-none absolute -top-32 -left-24 h-96 w-96 rounded-full bg-brand-100/60 blur-3xl" />
-        <div className="pointer-events-none absolute -top-20 right-0 h-80 w-80 rounded-full bg-brand-200/40 blur-3xl" />
+      <section className="relative flex flex-col items-center justify-center overflow-hidden bg-white px-6 pt-20 pb-32 text-center">
+        {/* Network Mesh Background (Stylised SVG) */}
+        <div className="pointer-events-none absolute inset-0 z-0 flex items-center justify-center opacity-[0.15]">
+          <svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full max-w-6xl">
+            <path d="M200 100L400 300L600 150L800 400L1000 200" stroke="#0e8ce9" strokeWidth="1" />
+            <path d="M100 400L300 600L500 450L700 700L900 500" stroke="#0e8ce9" strokeWidth="1" />
+            <path d="M200 100L300 600" stroke="#0e8ce9" strokeWidth="1" />
+            <path d="M400 300L500 450" stroke="#0e8ce9" strokeWidth="1" />
+            <path d="M600 150L700 700" stroke="#0e8ce9" strokeWidth="1" />
+            <path d="M800 400L900 500" stroke="#0e8ce9" strokeWidth="1" />
+            <circle cx="200" cy="100" r="4" fill="#0e8ce9" />
+            <circle cx="400" cy="300" r="4" fill="#0e8ce9" />
+            <circle cx="600" cy="150" r="4" fill="#0e8ce9" />
+            <circle cx="800" cy="400" r="4" fill="#0e8ce9" />
+            <circle cx="1000" cy="200" r="4" fill="#0e8ce9" />
+            <circle cx="100" cy="400" r="4" fill="#0e8ce9" />
+            <circle cx="300" cy="600" r="4" fill="#0e8ce9" />
+            <circle cx="500" cy="450" r="4" fill="#0e8ce9" />
+            <circle cx="700" cy="700" r="4" fill="#0e8ce9" />
+            <circle cx="900" cy="500" r="4" fill="#0e8ce9" />
+          </svg>
+        </div>
 
-        <div className="shell relative grid gap-14 py-16 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:py-24">
-          <div>
-            <motion.span className="eyebrow" {...fadeUp} transition={{ duration: 0.5 }}>
-              <IconSparkles size={14} />
-              Skill-first hiring for women
-            </motion.span>
-
-            <motion.h1
-              className="mt-5 text-4xl leading-[1.08] font-extrabold tracking-tight text-ink-900 sm:text-5xl lg:text-[3.4rem]"
-              {...fadeUp}
-              transition={{ duration: 0.55, delay: 0.05 }}
-            >
-              Her Skills.
-              <br />
-              Her Income.
-              <br />
-              <span className="bg-gradient-to-r from-brand-600 to-brand-900 bg-clip-text text-transparent">
-                Her Independence.
-              </span>
-            </motion.h1>
-
-            <motion.p
-              className="mt-6 max-w-xl text-base leading-relaxed text-ink-500 sm:text-lg"
-              {...fadeUp}
-              transition={{ duration: 0.55, delay: 0.12 }}
-            >
-              herHunar connects women who stitch, cook, craft, tutor, and create with companies hiring for exactly
-              those skills. No CV maze — just clear profiles, real skills, and a simple match score.
-            </motion.p>
-
-            <motion.div
-              className="mt-8 flex flex-wrap items-center gap-3"
-              {...fadeUp}
-              transition={{ duration: 0.55, delay: 0.18 }}
-            >
-              <Link to="/discover" className="btn-primary px-5 py-3">
-                Explore talent
-                <IconArrowRight size={16} />
-              </Link>
-              <Link to="/join?as=talent" className="btn-outline px-5 py-3">
-                <IconUser size={16} />
-                Create my profile
-              </Link>
-              <Link
-                to="/join?as=company"
-                className="inline-flex items-center gap-2 px-2 py-3 text-sm font-semibold text-brand-700 transition hover:text-brand-800"
-              >
-                <IconBriefcase size={16} />
-                I&apos;m hiring
-              </Link>
-            </motion.div>
-
-            <motion.dl
-              className="mt-10 grid max-w-xl grid-cols-2 gap-x-6 gap-y-5 sm:grid-cols-4"
-              {...fadeUp}
-              transition={{ duration: 0.55, delay: 0.24 }}
-            >
-              {[
-                { label: 'Talent profiles', value: talents.length },
-                { label: 'Companies', value: companies.length },
-                { label: 'Open roles', value: requirementCount },
-                { label: 'Requests sent', value: requests.length },
-              ].map((stat) => (
-                <div key={stat.label}>
-                  <dt className="text-xs font-medium tracking-wide text-ink-400 uppercase">{stat.label}</dt>
-                  <dd className="mt-1 text-2xl font-extrabold text-ink-900">{stat.value}</dd>
-                </div>
-              ))}
-            </motion.dl>
-          </div>
-
-          {/* Hero preview card, built from the sample data in this browser. */}
-          <motion.div
-            className="relative mx-auto w-full max-w-md"
-            initial={{ opacity: 0, y: 26, scale: 0.98 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.16 }}
+        <div className="shell relative z-10 flex flex-col items-center">
+          <motion.h1
+            className="max-w-4xl text-5xl font-extrabold tracking-tight text-ink-900 sm:text-7xl lg:text-[5rem] leading-[1.1]"
+            {...fadeUp}
+            transition={{ duration: 0.6 }}
           >
-            {heroTalent && (
-              <div className="card relative z-10 p-6">
-                <div className="flex items-center gap-4">
-                  <Avatar name={heroTalent.name} seed={heroTalent.id} size="lg" />
-                  <div className="min-w-0">
-                    <p className="truncate text-lg font-bold text-ink-900">{heroTalent.name}</p>
-                    <p className="truncate text-sm font-medium text-brand-700">{heroTalent.occupation}</p>
-                    <p className="mt-0.5 text-xs text-ink-400">
-                      Age {heroTalent.age} · {heroTalent.location}
-                    </p>
-                  </div>
-                </div>
+            Bridging Talent and <br />
+            <span className="text-brand-500">Opportunity</span>
+          </motion.h1>
 
-                <div className="mt-5 flex flex-wrap gap-1.5">
-                  {(heroTalent.skills ?? []).slice(0, 5).map((skill) => (
-                    <SkillBadge key={skill}>{skill}</SkillBadge>
-                  ))}
-                </div>
+          <motion.p
+            className="mt-8 max-w-2xl text-lg leading-relaxed text-ink-500 sm:text-xl"
+            {...fadeUp}
+            transition={{ duration: 0.6, delay: 0.1 }}
+          >
+            Empowering women with skills to connect with companies looking for their expertise.
+            herHunar provides the network, you provide the talent.
+          </motion.p>
 
-                {heroMatch && (
-                  <div className="mt-6 rounded-2xl border border-brand-100 bg-brand-50/70 p-4">
-                    <div className="flex items-center justify-between text-xs font-semibold text-brand-800">
-                      <span>Match with {heroCompany.companyName}</span>
-                      <span>{heroMatch.percent}%</span>
-                    </div>
-                    <div className="mt-2.5 h-2 overflow-hidden rounded-full bg-white">
-                      <div
-                        className="h-full rounded-full bg-gradient-to-r from-brand-500 to-brand-700 transition-[width] duration-700"
-                        style={{ width: `${Math.max(heroMatch.percent, 4)}%` }}
-                      />
-                    </div>
-                    <p className="mt-2.5 text-[11px] leading-relaxed text-brand-800/80">
-                      Best role: {heroMatch.requirement?.title} · matched {heroMatch.matched.length} of{' '}
-                      {heroMatch.requirement?.skills.length} skills
-                    </p>
-                  </div>
-                )}
+          <motion.div
+            className="mt-10"
+            {...fadeUp}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <Link to="/join" className="btn-primary px-8 py-4 text-base">
+              Get Started
+            </Link>
+          </motion.div>
 
-                <div className="mt-5 flex items-center justify-between border-t border-slate-100 pt-4 text-xs text-ink-400">
-                  <span className="inline-flex items-center gap-1.5">
-                    <IconShield size={14} className="text-brand-500" />
-                    Public link ready
-                  </span>
-                  <span>/talent/{heroTalent.id}</span>
-                </div>
-              </div>
-            )}
-
-            <div className="animate-float absolute -top-5 -right-3 z-20 hidden rounded-2xl border border-slate-200 bg-white px-4 py-3 shadow-card sm:block">
-              <p className="text-[11px] font-medium tracking-wide text-ink-400 uppercase">Requests</p>
-              <p className="mt-0.5 flex items-center gap-1.5 text-sm font-bold text-ink-900">
-                <IconCheck size={15} className="text-emerald-500" />
-                {requests.length} saved locally
-              </p>
+          {/* Trusted By Section */}
+          <motion.div
+            className="mt-32 w-full"
+            {...fadeUp}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
+            <p className="text-[11px] font-bold tracking-[0.2em] text-ink-400 uppercase">Trusted by:</p>
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-x-12 gap-y-8 opacity-60 grayscale transition-all hover:grayscale-0">
+              <span className="flex items-center gap-2 text-xl font-bold text-ink-900">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5-10-5-10 5zM2 12l10 5 10-5-10-5-10 5z"/></svg>
+                Webflow
+              </span>
+              <span className="flex items-center gap-2 text-xl font-bold text-ink-900">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.27a11 11 0 00-3.48 21.46c.55.09.73-.24.73-.53v-1.84c-3.03.66-3.67-1.46-3.67-1.46-.5-1.27-1.2-1.61-1.2-1.61-1-.68.07-.66.07-.66 1.1.07 1.68 1.13 1.68 1.13.98 1.68 2.58 1.2 3.2 0 .1-.7.38-1.2.69-1.5-2.42-.27-4.96-1.2-4.96-5.38 0-1.19.43-2.17 1.14-2.94-.12-.27-.49-1.38.11-2.9 0 0 .91-.3 3 1.1a10.4 10.4 0 015.5 0c2.1-1.4 3-1.1 3-1.1.6 1.52.23 2.63.11 2.9.71.77 1.14 1.75 1.14 2.94 0 4.19-2.54 5.1-4.97 5.37.39.34.73 1 .73 2v3c0 .29.18.63.74.52A11 11 0 0012 1.27z"/></svg>
+                GitHub
+              </span>
+              <span className="flex items-center gap-2 text-xl font-bold text-ink-900">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0L2 12h5v12h10V12h5L12 0z"/></svg>
+                Postman
+              </span>
             </div>
-
-            <div className="absolute -bottom-6 -left-4 z-0 hidden h-40 w-40 rounded-3xl bg-gradient-to-br from-brand-100 to-brand-200/50 blur-[2px] sm:block" />
           </motion.div>
         </div>
       </section>

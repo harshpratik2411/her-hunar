@@ -492,7 +492,7 @@ export default function Join() {
                 htmlFor="about"
                 required
                 error={errors.about}
-                hint={`${values.about.trim().length} of 30 characters minimum.`}
+               hint={`${(values.about ?? '').trim().length} of 30 characters minimum.`}
               >
                 <textarea
                   id="about"

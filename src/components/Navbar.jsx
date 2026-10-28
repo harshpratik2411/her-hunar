@@ -10,19 +10,12 @@ const NAV_LINKS = [
   { to: '/', label: 'Home' },
   { to: '/discover', label: 'Discover talent' },
   { to: '/join?as=company', label: 'For companies' },
-  { to: '/join?as=talent', label: 'For talent' },
 ];
 
 function Logo() {
   return (
-    <Link to="/" className="flex items-center gap-2.5">
-      <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-brand-500 to-brand-800 text-base font-extrabold text-white shadow-[0_10px_22px_-12px_rgba(29,47,156,0.95)]">
-        H
-      </span>
-      <span className="flex flex-col leading-none">
-        <span className="text-base font-extrabold tracking-tight text-ink-900">herHunar</span>
-        <span className="text-[10px] font-medium tracking-wide text-ink-400 uppercase">Skills → opportunities</span>
-      </span>
+    <Link to="/" className="flex items-center gap-2">
+      <span className="text-xl font-extrabold tracking-tight text-ink-900">herHunar</span>
     </Link>
   );
 }
@@ -40,11 +33,13 @@ export default function Navbar() {
   }, [location.pathname, location.search]);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-slate-200/70 bg-white/85 backdrop-blur-xl">
-      <div className="shell flex h-16 items-center justify-between gap-4">
-        <Logo />
+    <header className="sticky top-0 z-40 bg-white/70 backdrop-blur-xl">
+      <div className="shell flex h-20 items-center justify-between gap-4">
+        <div className="flex-1">
+          <Logo />
+        </div>
 
-        <nav className="hidden items-center gap-1 lg:flex">
+        <nav className="hidden flex-1 items-center justify-center gap-6 lg:flex">
           {NAV_LINKS.map((item) => {
             const isActive = `${location.pathname}${location.search}` === item.to;
             return (
@@ -52,8 +47,8 @@ export default function Navbar() {
                 key={item.label}
                 to={item.to}
                 className={cx(
-                  'rounded-lg px-3 py-2 text-sm font-semibold transition',
-                  isActive ? 'bg-brand-50 text-brand-700' : 'text-ink-700 hover:bg-brand-50 hover:text-brand-700',
+                  'text-sm font-semibold transition-colors',
+                  isActive ? 'text-brand-600' : 'text-ink-500 hover:text-ink-900',
                 )}
               >
                 {item.label}
@@ -62,14 +57,14 @@ export default function Navbar() {
           })}
         </nav>
 
-        <div className="flex items-center gap-2">
+        <div className="flex flex-1 items-center justify-end gap-4">
           {!currentUser && (
-            <Link to="/login" className="btn-ghost hidden sm:inline-flex">
-              Log in
+            <Link to="/login" className="text-sm font-semibold text-brand-600 hover:text-brand-700 hidden sm:inline-flex">
+              Login
             </Link>
           )}
-          <Link to="/join" className="btn-primary hidden sm:inline-flex">
-            Get started
+          <Link to="/join" className="btn-outline btn-sm hidden sm:inline-flex">
+            Get Started
           </Link>
 
           {/* The compact “S” account tab. */}
@@ -81,14 +76,14 @@ export default function Navbar() {
               aria-haspopup="menu"
               aria-label="Account and profile options"
               className={cx(
-                'relative inline-flex h-10 w-10 items-center justify-center rounded-xl text-sm font-extrabold text-white transition',
-                'bg-gradient-to-br from-brand-600 to-brand-800 shadow-[0_10px_22px_-12px_rgba(29,47,156,0.95)] hover:from-brand-500 hover:to-brand-700 active:translate-y-px',
-                panelOpen && 'ring-4 ring-brand-500/20',
+                'relative inline-flex h-9 w-9 items-center justify-center rounded-xl text-xs font-extrabold text-white transition',
+                'bg-gradient-to-br from-brand-500 to-brand-700 shadow-sm hover:from-brand-600 hover:to-brand-800 active:scale-95',
+                panelOpen && 'ring-2 ring-brand-500/20',
               )}
             >
               S
               {currentUser && (
-                <span className="absolute -top-0.5 -right-0.5 h-2.5 w-2.5 rounded-full bg-emerald-400 ring-2 ring-white" />
+                <span className="absolute -top-0.5 -right-0.5 h-2 w-2 rounded-full bg-emerald-400 ring-2 ring-white" />
               )}
             </button>
             <AccountPanel open={panelOpen} onClose={() => setPanelOpen(false)} />
